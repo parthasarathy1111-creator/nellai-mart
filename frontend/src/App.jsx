@@ -1,10 +1,16 @@
-import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes/AppRouter";
+import { AuthProvider } from "./context/AuthContext";
+import { ToastProvider } from "./context/ToastContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <h1>Nellai Mart</h1>
-    </BrowserRouter>
+    <AuthProvider>
+      <ToastProvider>
+        <RouterProvider router={router} />
+      </ToastProvider>
+    </AuthProvider>
   );
 }
 
